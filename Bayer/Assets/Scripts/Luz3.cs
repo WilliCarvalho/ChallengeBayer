@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Luz3 : MonoBehaviour
 {
+    public GameObject botao;
     public SwapTexture bloco1;
     public SwapTexture bloco2;
     public SwapTexture bloco3;
@@ -13,18 +14,30 @@ public class Luz3 : MonoBehaviour
     public SwapTexture bloco7;
     public SwapTexture bloco8;
     public bool playerPresent = false;
+    public bool interagiu;
 
-    // Start is called before the first frame update
-    void Start()
+    // Start is called before the first frame update   
+
+    private void OnTriggerStay(Collider other)
     {
-
+        if (other.tag == "Player" && interagiu == false)
+        {
+            playerPresent = true;
+            botao.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        if (playerPresent == true)
+        if (other.tag == "Player")
         {
+            playerPresent = false;
+            botao.SetActive(false);
+        }
+    }
+
+    public void ButtonTexture()
+    {        
             bloco1.trocaTextura();
             bloco2.trocaTextura();
             bloco3.trocaTextura();
@@ -33,11 +46,7 @@ public class Luz3 : MonoBehaviour
             bloco6.trocaTextura();
             bloco7.trocaTextura();
             bloco8.trocaTextura();
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        playerPresent = true;
+            botao.SetActive(false);
+            interagiu = true;
     }
 }

@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
                 }
             case Phase.ENEMY:
                 {
-                    foreach(GameObject e in enemies)
+                    foreach (GameObject e in enemies)
                     {
                         e.GetComponent<Enemy>().PhaseBehavior(command);
                     }

@@ -18,6 +18,10 @@ public class sombra : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Destroy(other);
+        if (other.tag == "Player")
+        {
+            Destroy(other);
+        }
+
     }
 }

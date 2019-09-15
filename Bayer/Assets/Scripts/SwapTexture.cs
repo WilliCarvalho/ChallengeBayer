@@ -19,14 +19,11 @@ public class SwapTexture : MonoBehaviour
     }
 
     public void trocaTextura()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
+    {       
             currentTexture++;
             currentTexture %= texturas.Length;            
             GetComponent<Renderer>().material.mainTexture = texturas[currentTexture];
-            iluminado = true;
-        }
+            iluminado = true;        
     }
 
     public void OnTriggerEnter(Collider other)
