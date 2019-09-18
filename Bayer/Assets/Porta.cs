@@ -12,6 +12,8 @@ public class Porta : MonoBehaviour
     public SwapTexture bloco4;
     public bool interagiu;
 
+    private bool intervalo;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" && interagiu == false)
@@ -30,13 +32,24 @@ public class Porta : MonoBehaviour
 
     public void AbrirPorta()
     {
-        Destroy(porta, 1.0f);
-        interagiu = true;
-        botao.SetActive(false);
-        bloco1.trocaTextura();
-        bloco2.trocaTextura();
-        bloco3.trocaTextura();
-        bloco4.trocaTextura();
+        StartCoroutine(Espera());
+        if(intervalo == true)
+        {
+            Destroy(porta);
+            interagiu = true;
+            botao.SetActive(false);
+            bloco1.trocaTextura();
+            bloco2.trocaTextura();
+            bloco3.trocaTextura();
+            bloco4.trocaTextura();            
+        }
+    }
+
+    IEnumerator Espera()
+    {
+        yield return new WaitForSeconds(1.0f);
+        intervalo = true;
+        AbrirPorta();
     }
 
 }

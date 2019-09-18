@@ -10,6 +10,8 @@ public class Luz : MonoBehaviour
     public SwapTexture bloco2;
     public bool playerPresent = false;
     public bool interagiu;
+    public GameObject luz;
+    private bool intervalo;
 
     // Start is called before the first frame update
 
@@ -31,10 +33,25 @@ public class Luz : MonoBehaviour
     }
 
     public void ButtonTexture()
-    {                
+    {
+        botao.SetActive(false);
+        StartCoroutine(Espera());
+        if (intervalo == true)
+        {
             bloco1.trocaTextura();
-            bloco2.trocaTextura();
-            botao.SetActive(false);
+            bloco2.trocaTextura();            
+            luz.SetActive(true);
             interagiu = true;
+            Destroy(gameObject);
+        }
+        
     }
+
+    IEnumerator Espera()
+    {
+        yield return new WaitForSeconds(1.0f);
+        intervalo = true;
+        ButtonTexture();
+    }
+
 }

@@ -11,6 +11,8 @@ public class Luz4 : MonoBehaviour
     public bool playerPresent = false;
     public bool interagiu;
 
+    private bool intervalo;
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -32,12 +34,22 @@ public class Luz4 : MonoBehaviour
 
     public void ButtonTexture()
     {
+        StartCoroutine(Espera());
+        if(intervalo == true)
         {
             bloco1.trocaTextura();
             bloco2.trocaTextura();
             bloco3.trocaTextura();
             botao.SetActive(false);
             interagiu = true;
+            Destroy(gameObject);
         }
+    }
+
+    IEnumerator Espera()
+    {
+        yield return new WaitForSeconds(1.0f);
+        intervalo = true;
+        ButtonTexture();
     }
 }
