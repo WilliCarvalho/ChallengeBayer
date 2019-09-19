@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Luz : MonoBehaviour
 {
@@ -34,13 +35,15 @@ public class Luz : MonoBehaviour
 
     public void ButtonTexture()
     {
-        botao.SetActive(false);
+        //print("Entrou1");
         StartCoroutine(Espera());
         if (intervalo == true)
         {
+            //print("Entrou2");
             bloco1.trocaTextura();
             bloco2.trocaTextura();            
             luz.SetActive(true);
+            botao.SetActive(false);
             interagiu = true;
             Destroy(gameObject);
         }
@@ -54,4 +57,5 @@ public class Luz : MonoBehaviour
         ButtonTexture();
     }
 
+    
 }

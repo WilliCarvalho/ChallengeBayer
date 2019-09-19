@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour
 {
@@ -35,6 +36,28 @@ public class CameraManager : MonoBehaviour
         }
 
         yield return null;
+    }
+    public void Restart()
+    {
+        StartCoroutine(EsperaRestart());
+    }
+
+    IEnumerator EsperaRestart()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("Grecia");
+    }
+
+    public void ReturnMenu()
+    {
+        StartCoroutine(EsperaReturnMenu());
+
+    }
+
+    IEnumerator EsperaReturnMenu()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("MenuInicial");
     }
 
 }

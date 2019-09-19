@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Enemy : Character
 {
     public GameObject tile;
+    public GameObject fonteSomPlayer;
+    public GameObject fonteSomSombra;
+    private int controle;
     //public GameManager gameManager;
     public override void PhaseBehavior(TouchCommand command)
     {
@@ -21,7 +25,7 @@ public class Enemy : Character
             //Debug.DrawRay(transform.position, hit.transform.parent.position, Color.red);
             if (hit.transform.tag == "Player")
             {
-                Destroy(hit.transform.gameObject, 1.0f);
+                //Destroy(hit.transform.gameObject, 1.0f);
                 StartCoroutine(Espera());                
             }
         }
@@ -37,9 +41,17 @@ public class Enemy : Character
 
     }
     IEnumerator Espera()
-    {
-        yield return new WaitForSeconds(1.0f);
-        Application.LoadLevel(Application.loadedLevel);
+    {        
+        if (controle == 0)
+        {
+            controle++;
+            fonteSomSombra.GetComponent<AudioSource>().Play();
+            yield return new WaitForSeconds(1.0f);
+            print("entrouaqui");
+            fonteSomPlayer.GetComponent<AudioSource>().Play();
+            yield return new WaitForSeconds(1.0f);
+            SceneManager.LoadScene("Grecia");
+        }        
     }
      IEnumerator EsperaInimigo()
     {        

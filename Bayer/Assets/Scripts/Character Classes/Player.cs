@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Player : Character
 {
+    public GameObject somAndando;
     /// <summary>
     /// How the player class processes the TouchCommand
     /// </summary>
@@ -16,13 +17,14 @@ public class Player : Character
                     RaycastHit hit;
                     if (base.RaycastInDirection(command.direction, out hit))
                     {
-                        print(hit.transform.tag);
+                        //print(hit.transform.tag);
                         switch (hit.transform.tag)
                         {
                             case "Tile":
                                 {
                                     SetCharacterDirection(command.direction);
                                     Move(hit.transform.GetComponent<Tile>().getTileLocation());
+                                    somAndando.GetComponent<AudioSource>().Play();
                                     break;
                                 }
                             case "Enemy":
@@ -71,5 +73,13 @@ public class Player : Character
         }
        
         yield return null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Tile")
+        {
+            somAndando.GetComponent<AudioSource>().Stop();
+        }
     }
 }

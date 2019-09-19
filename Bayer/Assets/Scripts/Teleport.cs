@@ -18,7 +18,7 @@ public class Teleport : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        print("Trigger entered");
+        //print("Trigger entered");
         if (destination != null)
         {
             UnityEngine.AI.NavMeshAgent agent = other.GetComponent<UnityEngine.AI.NavMeshAgent>();

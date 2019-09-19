@@ -15,6 +15,7 @@ public class Luz3 : MonoBehaviour
     public SwapTexture bloco8;
     public bool playerPresent = false;
     public bool interagiu;
+    public GameObject luz;
 
     private bool intervalo;
 
@@ -52,6 +53,7 @@ public class Luz3 : MonoBehaviour
             bloco7.trocaTextura();
             bloco8.trocaTextura();
             botao.SetActive(false);
+            luz.SetActive(true);
             interagiu = true;
             Destroy(gameObject);
         }
