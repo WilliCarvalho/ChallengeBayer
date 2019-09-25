@@ -46,7 +46,7 @@ public class CameraMove : MonoBehaviour
 
         else if (mover2)
         {
-            cameraPrincipal.transform.Translate(0f, -1f, 0f * velocidade * Time.deltaTime, Space.World);
+            cameraPrincipal.transform.Translate(0f, -1f * velocidade * Time.deltaTime, 0f, Space.World);
             if (cameraPrincipal.transform.position.y < endPosition2.y)
             {
                 mover2 = false;
