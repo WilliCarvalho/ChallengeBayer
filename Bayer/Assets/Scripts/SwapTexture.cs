@@ -10,6 +10,8 @@ public class SwapTexture : MonoBehaviour
     public bool iluminado = false;
     public GameObject SpawnPoint;
     public GameObject fonte;
+    public Animator playeranimator;
+    public GameObject managers;
     void Start()
     {
         
@@ -34,7 +36,7 @@ public class SwapTexture : MonoBehaviour
         {
             //StartCoroutine(Destruir(other));
             //other.transform.position = SpawnPoint.transform.position;
-            StartCoroutine(RestartEscuridão());
+            StartCoroutine(RestartEscuridão());            
         }
     }
 
@@ -47,8 +49,11 @@ public class SwapTexture : MonoBehaviour
 
     IEnumerator RestartEscuridão()
     {
+        Destroy(managers);
+        playeranimator.SetTrigger("Die");
+        yield return new WaitForSeconds(0.5f);
         fonte.GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(1.0f);        
+        yield return new WaitForSeconds(1.5f);        
         SceneManager.LoadScene("Grecia");
     }
 

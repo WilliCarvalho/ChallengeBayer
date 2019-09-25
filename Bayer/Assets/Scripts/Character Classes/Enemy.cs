@@ -7,6 +7,11 @@ public class Enemy : Character
     public GameObject tile;
     public GameObject fonteSomPlayer;
     public GameObject fonteSomSombra;
+    public Player scriptplayer;
+    public Animator animatorPlayer;
+    public Animator animatorSombra;
+    public GameObject managers;
+
     private int controle;
     //public GameManager gameManager;
     public override void PhaseBehavior(TouchCommand command)
@@ -24,14 +29,14 @@ public class Enemy : Character
         {
             //Debug.DrawRay(transform.position, hit.transform.parent.position, Color.red);
             if (hit.transform.tag == "Player")
-            {
-                //Destroy(hit.transform.gameObject, 1.0f);
+            {                
                 StartCoroutine(Espera());                
             }
         }
 
         if (tile.GetComponent<SwapTexture>().iluminado == true)
         {
+            animatorSombra.SetTrigger("Die");
             GameObject manager = GameObject.Find("Managers");
             manager.GetComponent<GameManager>().removeFromEnemies(gameObject);
             Destroy(gameObject);
@@ -44,12 +49,15 @@ public class Enemy : Character
     {        
         if (controle == 0)
         {
+            Destroy(managers);
+            scriptplayer.enabled = false;
+            animatorPlayer.SetTrigger("Die");
+            animatorSombra.SetTrigger("Attack");
             controle++;
             fonteSomSombra.GetComponent<AudioSource>().Play();
-            yield return new WaitForSeconds(1.0f);
-            print("entrouaqui");
+            yield return new WaitForSeconds(1.0f);           
             fonteSomPlayer.GetComponent<AudioSource>().Play();
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.5f);
             SceneManager.LoadScene("Grecia");
         }        
     }

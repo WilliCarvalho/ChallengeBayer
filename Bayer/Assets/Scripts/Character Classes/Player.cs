@@ -4,10 +4,19 @@ using System.Collections;
 public class Player : Character
 {
     public GameObject somAndando;
+    public bool die;
     /// <summary>
     /// How the player class processes the TouchCommand
     /// </summary>
     /// <param name="command"></param>
+    /// 
+    private void Update()
+    {
+        if (die)
+        {
+            
+        }
+    }
     public override void PhaseBehavior(TouchCommand command)
     {
         switch (command.inputType)
