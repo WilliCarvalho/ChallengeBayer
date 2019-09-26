@@ -12,6 +12,7 @@ public class Luz : MonoBehaviour
     public bool playerPresent = false;
     public bool interagiu;
     public GameObject luz;
+    public GameObject fog;
     public Transform playerTransform;
     public Transform paredeTransform;
     public Animator playerAnimator;
@@ -53,6 +54,7 @@ public class Luz : MonoBehaviour
         luz.SetActive(true);
         botao.SetActive(false);
         interagiu = true;
+        Destroy(fog);
         Destroy(gameObject);
     }
 

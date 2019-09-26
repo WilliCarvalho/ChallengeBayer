@@ -13,9 +13,11 @@ public class UIController : MonoBehaviour
     public GameObject titulo;
     public GameObject introducao;
 
+    public GameObject botao1, botao2, botao3, botao4, botao5, botao6, botao7, botao8, botao9, botao10;
+
 
     private int i = 0;
-    public GameObject texto1, texto2, texto3, texto4, texto5, texto6;
+    public GameObject texto1, texto2, texto3, texto4, texto5, texto6, texto7;
   
     private void Start()
     {
@@ -66,6 +68,10 @@ public class UIController : MonoBehaviour
         }
         else if (i == 6)
         {
+            AtivarTexto(texto7);
+        }
+        else if (i == 7)
+        {
             SceneManager.LoadScene("Grecia");
         }        
     }
@@ -76,9 +82,29 @@ public class UIController : MonoBehaviour
     public void ShowPopUp(GameObject popup)
     {
         popup.SetActive(true);
+        botao1.GetComponent<Button>().interactable = false;
+        botao2.GetComponent<Button>().interactable = false;
+        botao3.GetComponent<Button>().interactable = false;
+        botao4.GetComponent<Button>().interactable = false;
+        botao5.GetComponent<Button>().interactable = false;
+        botao6.GetComponent<Button>().interactable = false;
+        botao7.GetComponent<Button>().interactable = false;
+        botao8.GetComponent<Button>().interactable = false;
+        botao9.GetComponent<Button>().interactable = false;
+        botao10.GetComponent<Button>().interactable = false;
     }
     public void HidePopUp(GameObject popup)
     {
+        botao1.GetComponent<Button>().interactable = true;
+        botao2.GetComponent<Button>().interactable = true;
+        botao3.GetComponent<Button>().interactable = true;
+        botao4.GetComponent<Button>().interactable = true;
+        botao5.GetComponent<Button>().interactable = true;
+        botao6.GetComponent<Button>().interactable = true;
+        botao7.GetComponent<Button>().interactable = true;
+        botao8.GetComponent<Button>().interactable = true;
+        botao9.GetComponent<Button>().interactable = true;
+        botao10.GetComponent<Button>().interactable = true;
         popup.SetActive(false);
     }
     public void HideMenus()

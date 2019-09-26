@@ -6,6 +6,7 @@ public class Porta : MonoBehaviour
 {
     public GameObject porta;
     public GameObject botao;
+    public GameObject fog;
     public SwapTexture bloco1;
     public SwapTexture bloco2;
     public SwapTexture bloco3;
@@ -50,6 +51,7 @@ public class Porta : MonoBehaviour
         bloco2.trocaTextura();
         bloco3.trocaTextura();
         bloco4.trocaTextura();
+        Destroy(fog);
         Destroy(porta);
     }
 

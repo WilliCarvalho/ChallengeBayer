@@ -6,17 +6,27 @@ public class CameraMove : MonoBehaviour
 {
     public GameObject cameraPrincipal;
     public float velocidade;
+
     private bool mover;
-    private bool mover2;
+    private bool mover2; 
+
+    public GameObject proprioTrigger;
+    public GameObject outroTrigger;
+    public GameObject managers;
+    public GameObject botoesInterface;
+
     private Vector3 endPosition;
-    private Vector3 endPosition2;
+    private Vector3 endPosition2;  
 
     // Start is called before the first frame update
     void Start()
     {
         endPosition = new Vector3(cameraPrincipal.transform.position.x, cameraPrincipal.transform.position.y, -20f);
-        endPosition2 = new Vector3(cameraPrincipal.transform.position.x, 28f, cameraPrincipal.transform.position.z);
+        endPosition2 = new Vector3(cameraPrincipal.transform.position.x, 28f, cameraPrincipal.transform.position.z);        
         mover2 = true;
+        managers.SetActive(false);
+        botoesInterface.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -30,7 +40,7 @@ public class CameraMove : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             mover = true;
-        }
+        }      
     }
 
     void MoverCamera()
@@ -41,6 +51,8 @@ public class CameraMove : MonoBehaviour
             if (cameraPrincipal.transform.position.z > endPosition.z)
             {
                 mover = false;
+                outroTrigger.SetActive(true);
+                proprioTrigger.SetActive(false);
             }
         }
 
@@ -50,7 +62,9 @@ public class CameraMove : MonoBehaviour
             if (cameraPrincipal.transform.position.y < endPosition2.y)
             {
                 mover2 = false;
+                managers.SetActive(true);
+                botoesInterface.SetActive(true);
             }
-        }
+        }        
     }
 }

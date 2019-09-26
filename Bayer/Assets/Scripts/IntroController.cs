@@ -14,7 +14,7 @@ public class IntroController : MonoBehaviour
 
     Vector3 startPosition = new Vector3(0f, 0f);
     Vector3 endPosition = new Vector3(0f, 340f);
-    float timeOfTravel = 250; //time after object reach a target place 
+    float timeOfTravel = 200; //time after object reach a target place 
     float currentTime = 0;
     float normalizedValue;
     // Start is called before the first frame update

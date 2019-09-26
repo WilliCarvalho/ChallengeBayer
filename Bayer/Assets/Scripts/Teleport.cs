@@ -13,7 +13,7 @@ public class Teleport : MonoBehaviour
 
     public void Start()
     {
-        cameraManager = GameObject.Find("Managers").GetComponent<CameraManager>();
+        //cameraManager = GameObject.Find("Managers").GetComponent<CameraManager>();
     }
 
     public void OnTriggerEnter(Collider other)

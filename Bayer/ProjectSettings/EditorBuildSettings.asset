@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Scenes/Levels/Apresenta\xE7\xE3o.unity"
+    path: "Assets/Scenes/Bayer/Apresenta\xE7\xE3o.unity"
     guid: fafaccc498e40f84b8fb6bda4e04ff08
   - enabled: 1
-    path: Assets/Scenes/Levels/MenuInicial/MenuInicial.unity
+    path: Assets/Scenes/Bayer/MenuInicial/MenuInicial.unity
     guid: c3d89b71c7b205f4899f91b0eed63a4a
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/Grecia.unity
+    path: Assets/Scenes/Bayer/World 1/Grecia.unity
     guid: 6a180c326c09c7040921f44251940d32
   - enabled: 1
-    path: Assets/Scenes/Levels/Vitoria.unity
+    path: Assets/Scenes/Bayer/Vitoria.unity
     guid: 6debe547d13fcd34bb44fdeb2c1dd58b
   m_configObjects: {}

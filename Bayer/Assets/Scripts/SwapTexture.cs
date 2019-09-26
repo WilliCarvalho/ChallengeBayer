@@ -12,9 +12,11 @@ public class SwapTexture : MonoBehaviour
     public GameObject fonte;
     public Animator playeranimator;
     public GameObject managers;
+    public GameObject player;
+    private Vector3 playerStartPosition;
     void Start()
     {
-        
+        playerStartPosition = player.transform.position;
     }
     
     void Update()
@@ -25,7 +27,7 @@ public class SwapTexture : MonoBehaviour
     public void trocaTextura()
     {       
             currentTexture++;
-            currentTexture %= texturas.Length;            
+            currentTexture %= texturas.Length;   
             GetComponent<Renderer>().material.mainTexture = texturas[currentTexture];
             iluminado = true;        
     }
@@ -53,7 +55,9 @@ public class SwapTexture : MonoBehaviour
         playeranimator.SetTrigger("Die");
         yield return new WaitForSeconds(0.5f);
         fonte.GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(1.5f);        
+        yield return new WaitForSeconds(1.5f);
+        //player.transform.position = playerStartPosition;
+       // player.GetComponent<Animator>().SetTrigger("Die");
         SceneManager.LoadScene("Grecia");
     }
 
