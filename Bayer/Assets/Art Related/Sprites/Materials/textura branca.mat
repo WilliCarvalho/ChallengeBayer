@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 2, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5dfc0bef24681a74c8b6634504f30d67, type: 3}
+        m_Texture: {fileID: 2800000, guid: 70de0d918f942164690bd862252bddf4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 2, y: 0}
     - _MetallicGlossMap:
@@ -65,7 +65,7 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _OcclusionStrength: 1
+    - _OcclusionStrength: 0.5
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

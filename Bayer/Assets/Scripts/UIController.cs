@@ -12,12 +12,14 @@ public class UIController : MonoBehaviour
     public GameObject menuMapas;
     public GameObject titulo;
     public GameObject introducao;
+    public GameObject cameraVideo;
+    public GameObject cameraMain;
 
     public GameObject botao1, botao2, botao3, botao4, botao5, botao6, botao7, botao8, botao9, botao10;
 
 
     private int i = 0;
-    public GameObject texto1, texto2, texto3, texto4, texto5, texto6, texto7;
+    public GameObject texto1, texto2, texto3, texto4;
   
     private void Start()
     {
@@ -37,9 +39,7 @@ public class UIController : MonoBehaviour
         texto1.SetActive(false);
         texto2.SetActive(false);
         texto3.SetActive(false);
-        texto4.SetActive(false);
-        texto5.SetActive(false);
-        texto6.SetActive(false);
+        texto4.SetActive(false);    
         texto.SetActive(true);
     }
 
@@ -57,20 +57,13 @@ public class UIController : MonoBehaviour
         else if (i == 3)
         {
             AtivarTexto(texto4);
-        }
+        }      
         else if (i == 4)
         {
-            AtivarTexto(texto5);
+            //HideMenus();
+            cameraVideo.SetActive(true);
         }
         else if (i == 5)
-        {
-            AtivarTexto(texto6);
-        }
-        else if (i == 6)
-        {
-            AtivarTexto(texto7);
-        }
-        else if (i == 7)
         {
             SceneManager.LoadScene("Grecia");
         }        
