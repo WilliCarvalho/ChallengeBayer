@@ -80,10 +80,4 @@ public class TutorialController : MonoBehaviour
         texto5.SetActive(false);
         texto.SetActive(true);
     }
-
-    public void RestartTutorial()
-    {
-        SceneManager.LoadScene("Tutorial");
-    }
-
 }

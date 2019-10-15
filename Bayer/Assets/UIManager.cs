@@ -68,4 +68,14 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene("MenuInicial");
     }
+    public void RestartTutorial()
+    {
+        StartCoroutine(RestartTuto());
+    }
+
+    IEnumerator RestartTuto()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("Tutorial");
+    }
 }
