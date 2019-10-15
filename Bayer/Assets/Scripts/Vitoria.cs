@@ -7,6 +7,7 @@ public class Vitoria : MonoBehaviour
 {
     public GameObject botaoVitoria;
     public GameObject fonteSom;
+    public GameObject managers;
     public Transform playerTransform;
     public Transform paredeTransform;
     public Transform hipocratesTransform;
@@ -27,6 +28,7 @@ public class Vitoria : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             botaoVitoria.SetActive(true);
+            managers.SetActive(false);
         }
     }
 

@@ -2295,6 +2295,9 @@ MonoBehaviour:
   popupRestart: {fileID: 1163254681}
   botoesInterface: {fileID: 1904288247}
   managers: {fileID: 1153344666}
+  tileVitoria: {fileID: 0}
+  botaoVitoria: {fileID: 0}
+  tutorial: 0
 --- !u!4 &124801953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5f0b24c5853454d42a63ed4e69a9849a,
@@ -6853,7 +6856,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.3
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -19364,6 +19367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botaoVitoria: {fileID: 33514395}
   fonteSom: {fileID: 1670226333}
+  managers: {fileID: 1153344666}
   playerTransform: {fileID: 381109910}
   paredeTransform: {fileID: 981014855}
   hipocratesTransform: {fileID: 981014855}

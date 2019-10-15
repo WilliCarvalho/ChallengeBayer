@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
     public GameObject popupRestart;
     public GameObject botoesInterface;
     public GameObject managers;
+    public GameObject tileVitoria;
+    public GameObject botaoVitoria;
+    public bool tutorial;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,11 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (tutorial && tileVitoria.GetComponent<SwapTexture>().iluminado == true)
+        {
+            print("foi");
+            botaoVitoria.SetActive(true);
+        }
     }
 
     public void FecharPopUp(GameObject popup)

@@ -65,7 +65,7 @@ public class UIController : MonoBehaviour
         }
         else if (i == 5)
         {
-            SceneManager.LoadScene("Grecia");
+            SceneManager.LoadScene("Tutorial");
         }        
     }
     public void GameGrecia()

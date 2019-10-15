@@ -12,6 +12,7 @@ public class Enemy : Character
     public Animator animatorSombra;
     public GameObject managers;
 
+    public bool tutorial;
     private int controle;
     //public GameManager gameManager;
     public override void PhaseBehavior(TouchCommand command)
@@ -46,7 +47,7 @@ public class Enemy : Character
 
     }
     IEnumerator Espera()
-    {        
+    {
         if (controle == 0)
         {
             Destroy(managers);
@@ -55,10 +56,19 @@ public class Enemy : Character
             animatorSombra.SetTrigger("Attack");
             controle++;
             fonteSomSombra.GetComponent<AudioSource>().Play();
-            yield return new WaitForSeconds(1.0f);           
+            yield return new WaitForSeconds(1.0f);
             fonteSomPlayer.GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(1.5f);
-            SceneManager.LoadScene("Grecia");
+
+            if (tutorial)
+            {
+                SceneManager.LoadScene("Tutorial");
+            }
+            else
+            { 
+                SceneManager.LoadScene("Grecia");
+            }
+                
         }        
     }
      IEnumerator EsperaInimigo()
